@@ -21,7 +21,7 @@ function [predicted_labels] = knn_classification(k,data_train, labels_train, dat
     
     for test_point = 1:size(data_test,1)
         distances = sqrt(sum((repmat(data_test(test_point,:),size(data_train,1),1) - data_train).^2,2));
-        [~, index] = sort(distances);
+            [~, index] = sort(distances);
         index = index(1:k);
         labels = labels_train(index);
         predicted_labels(test_point) = mode(labels);
